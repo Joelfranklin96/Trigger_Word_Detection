@@ -4,7 +4,8 @@
 - Audio clips of people saying positive words ('activate') and negative words (words other than 'activate') were collected.
 - 10 sec audio clips of background noises were collected.
 - There were two 10 secs background audio clips. 0-4 audio clips of 'activate' and 0-2 audio clips of negative words were randomly inserted into each of the background audio clips.
-- The timestep when the person completes saying 'activate' was labelled as 1. The next 49 consecutive timesteps were also labelled as 1 accounting for the uncertainty in the exact time step the word finishes. This also helps to balance the dataset and improves the model's ability to learn from both positive and negative examples.
+- The resultant audio clip (0-4 audio clips of 'activate' and 0-2 audio clips overlaid over background noise) is passed through spectogram to get an array of numbers. This is the input of model.
+- The timestep when the person completes saying 'activate' was labelled as 1. The next 49 consecutive timesteps were also labelled as 1 accounting for the uncertainty in the exact time step the word finishes. This also helps to balance the dataset and improves the model's ability to learn from both positive and negative examples. These are the ground truth labels.
 - A training set of 32 examples were created in a similar manner.
 2) Development of Model
 - Implemented a 1D convolutional layer with 196 filters, a kernel size of 15, and a stride of 4. The total timesteps were decreased from 5511 to 1375 to increase the computational efficieny of our RNN model.
